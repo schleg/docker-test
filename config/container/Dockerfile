@@ -16,6 +16,11 @@ RUN /bin/bash -l -c "rvm requirements"
 RUN /bin/bash -l -c "rvm install 2.1.0"
 RUN /bin/bash -l -c "gem install bundler --no-ri --no-rdoc"
 
+
+RUN gem install rubygems-update --no-ri --no-rdoc
+RUN update_rubygems
+RUN gem install bundler --no-ri --no-rdoc
+
 # Add configuration files in repository to filesystem
 ADD config/container/nginx-sites.conf /etc/nginx/sites-enabled/default
 ADD config/container/start-server.sh /usr/bin/start-server

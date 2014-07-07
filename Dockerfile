@@ -5,9 +5,7 @@ FROM ubuntu
 
 # Install nginx, nodejs and curl
 RUN apt-get update -q
-RUN apt-get install -qy nginx
-RUN apt-get install -qy curl
-RUN apt-get install -qy nodejs
+RUN apt-get install -y -q build-essential openssl libreadline6 libreadline6-dev nginx curl git-core zlib1g zlib1g-dev libssl-dev libyaml-dev libsqlite3-dev sqlite3 libxml2-dev libxslt-dev autoconf libc6-dev ncurses-dev automake libtool bison subversion pkg-config libmysqlclient-dev libpq-dev make wget unzip git vim nano nodejs mysql-client mysql-server gawk libgdbm-dev libffi-dev
 RUN echo "daemon off;" >> /etc/nginx/nginx.conf
 
 # Install rvm, ruby, bundler
